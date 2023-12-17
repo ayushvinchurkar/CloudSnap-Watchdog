@@ -5,7 +5,7 @@ The project aims to automate the cleanup of Amazon Elastic Block Store (EBS) sna
 
 # Components:
 
-AWS Lambda Function (lambda_handler):
+**AWS Lambda Function (lambda_handler):**
 
 Trigger: Scheduled execution, using AWS CloudWatch Events.
 
