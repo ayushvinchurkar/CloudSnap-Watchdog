@@ -19,6 +19,7 @@ The official AWS SDK for Python is used to interact with AWS services programmat
 
 Snapshot Retrieval: Utilizes the describe_snapshots API to retrieve information about EBS snapshots owned by the AWS account (OwnerIds=['self']).
 Active Instance Retrieval: Uses the describe_instances API to identify running EC2 instances and extracts their instance IDs.
+
 Snapshot Cleanup Logic:
 Iterates through each retrieved snapshot.
 Checks if the snapshot is associated with a volume.
@@ -26,7 +27,9 @@ If not, deletes the snapshot as it is not attached to any volume.
 If associated with a volume, checks if the volume still exists.
 If the volume has no attachments (not attached to any running instance), deletes the snapshot.
 If the volume is not found (possibly deleted), deletes the snapshot.
+
 Error Handling: Utilizes try and except blocks to handle exceptions, such as when attempting to describe volumes that may no longer exist (InvalidVolume.NotFound).
+
 Logging: Prints messages to log the actions taken, providing visibility into the cleanup process.
 # Deployment:
 
