@@ -1,6 +1,6 @@
-Create policies and add to the lambda function.
+Create policies and add below roles and attach it to the lambda function.
 
-Policies:
+Roles:
 
 1. DescribeSnapshots
 2. DescribeInstances 
