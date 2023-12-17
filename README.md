@@ -8,7 +8,9 @@ The project aims to automate the cleanup of Amazon Elastic Block Store (EBS) sna
 AWS Lambda Function (lambda_handler):
 
 Trigger: Scheduled execution, using AWS CloudWatch Events.
+
 Runtime: Python.
+
 Execution Role: The Lambda function assumes a role with the necessary permissions to interact with EC2 and delete EBS snapshots.
 # Boto3 Library:
 
