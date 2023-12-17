@@ -1,7 +1,13 @@
 # CloudSnap-Watchdog
 
 # Objective:
-The project aims to automate the cleanup of Amazon Elastic Block Store (EBS) snapshots in an AWS environment. EBS snapshots are used for backup and recovery purposes, but over time, unused or orphaned snapshots can accumulate, leading to increased storage costs. The goal of this project is to create an AWS Lambda function that regularly identifies and deletes EBS snapshots that are no longer needed.
+The project aims to automate the cleanup of Amazon Elastic Block Store (EBS) snapshots in an AWS environment. EBS snapshots are used for backup and recovery purposes, but over time, unused or orphaned snapshots can accumulate, leading to increased storage costs. The goal of this project was fortified with robust error-handling mechanisms to gracefully manage scenarios where associated volumes or snapshots were not found, ensuring the overall reliability of the automation process. The project showcased technical proficiency in serverless architecture, AWS Lambda, CloudWatch, EB and SNS resulting in significant cost savings through the removal of redundant EBS snapshots which are no longer needed and contributing to enhanced resource management within AWS cloud environments.
+
+
+
+
+
+
 
 # Components:
 
