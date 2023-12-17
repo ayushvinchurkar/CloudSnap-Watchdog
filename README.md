@@ -7,9 +7,9 @@ The project aims to automate the cleanup of Amazon Elastic Block Store (EBS) sna
 
 **AWS Lambda Function (lambda_handler):**
 
-Trigger: Scheduled execution, using AWS CloudWatch Events.
+**Trigger:** Scheduled execution, using AWS CloudWatch Events.
 
-Runtime: Python.
+**Runtime:** Python.
 
 Execution Role: The Lambda function assumes a role with the necessary permissions to interact with EC2 and delete EBS snapshots.
 # Boto3 Library:
@@ -17,10 +17,11 @@ Execution Role: The Lambda function assumes a role with the necessary permission
 The official AWS SDK for Python is used to interact with AWS services programmatically.
 # Functionality:
 
-Snapshot Retrieval: Utilizes the describe_snapshots API to retrieve information about EBS snapshots owned by the AWS account (OwnerIds=['self']).
-Active Instance Retrieval: Uses the describe_instances API to identify running EC2 instances and extracts their instance IDs.
+**Snapshot Retrieval:** Utilizes the describe_snapshots API to retrieve information about EBS snapshots owned by the AWS account (OwnerIds=['self']).
 
-Snapshot Cleanup Logic:
+**Active Instance Retrieval:** Uses the describe_instances API to identify running EC2 instances and extracts their instance IDs.
+
+**Snapshot Cleanup Logic:**
 Iterates through each retrieved snapshot.
 Checks if the snapshot is associated with a volume.
 If not, deletes the snapshot as it is not attached to any volume.
@@ -28,20 +29,20 @@ If associated with a volume, checks if the volume still exists.
 If the volume has no attachments (not attached to any running instance), deletes the snapshot.
 If the volume is not found (possibly deleted), deletes the snapshot.
 
-Error Handling: Utilizes try and except blocks to handle exceptions, such as when attempting to describe volumes that may no longer exist (InvalidVolume.NotFound).
+**Error Handling:** Utilizes try and except blocks to handle exceptions, such as when attempting to describe volumes that may no longer exist (InvalidVolume.NotFound).
 
-Logging: Prints messages to log the actions taken, providing visibility into the cleanup process.
+**Logging:** Prints messages to log the actions taken, providing visibility into the cleanup process.
 # Deployment:
 
 The Lambda function is deployed in the AWS environment.
 It is scheduled to run at defined intervals (e.g., daily or weekly) using AWS CloudWatch Events.
 # Considerations:
 
-Permissions: Ensure that the Lambda execution role has the necessary IAM policies attached for EC2 and EBS actions.
-Testing: Thoroughly test the Lambda function in a controlled environment before deploying it in a production setting.
-Monitoring: Implement monitoring and logging mechanisms (e.g., AWS CloudWatch Logs) for better visibility into the Lambda function's execution.
+**Permissions:** Ensure that the Lambda execution role has the necessary IAM policies attached for EC2 and EBS actions.
+**Testing:** Thoroughly test the Lambda function in a controlled environment before deploying it in a production setting.
+**Monitoring:** Implement monitoring and logging mechanisms (e.g., AWS CloudWatch Logs) for better visibility into the Lambda function's execution.
 # Benefits:
 
-Cost Optimization: Regularly cleaning up unused EBS snapshots helps reduce storage costs.
-Resource Efficiency: Ensures that storage resources are used efficiently by removing unnecessary snapshots.
-Automation: Automates a manual and potentially error-prone task, improving operational efficiency.
+**Cost Optimization:** Regularly cleaning up unused EBS snapshots helps reduce storage costs.
+**Resource Efficiency:** Ensures that storage resources are used efficiently by removing unnecessary snapshots.
+**Automation:** Automates a manual and potentially error-prone task, improving operational efficiency.
