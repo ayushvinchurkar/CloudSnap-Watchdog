@@ -39,10 +39,14 @@ It is scheduled to run at defined intervals (e.g., daily or weekly) using AWS Cl
 # Considerations:
 
 **Permissions:** Ensure that the Lambda execution role has the necessary IAM policies attached for EC2 and EBS actions.
+
 **Testing:** Thoroughly test the Lambda function in a controlled environment before deploying it in a production setting.
+
 **Monitoring:** Implement monitoring and logging mechanisms (e.g., AWS CloudWatch Logs) for better visibility into the Lambda function's execution.
 # Benefits:
 
 **Cost Optimization:** Regularly cleaning up unused EBS snapshots helps reduce storage costs.
+
 **Resource Efficiency:** Ensures that storage resources are used efficiently by removing unnecessary snapshots.
+
 **Automation:** Automates a manual and potentially error-prone task, improving operational efficiency.
